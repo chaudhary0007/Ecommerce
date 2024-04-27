@@ -1,11 +1,14 @@
-const bodyParser = require("body-parser")
-const express = require("express");
+// const express = require("express");
+// const bodyParser = require("body-parser")
+import express from 'express';
+import bodyParser from "body-parser";
+
 const app = express();
 const PORT = 3000;
 const router = express.Router();
 
 app.use(bodyParser.json());
-router.get("/", (req, res,next) => {
+router.get("/", (req, res) => {
   res.send("Hello")
   console.log('Method :',req.method,'Path:',req.path)
 });
@@ -19,3 +22,4 @@ app.listen(PORT, (error) => {
 })
 
 app.use('/', router)
+export default router;

@@ -3,9 +3,11 @@
 import express from 'express';
 import bodyParser from "body-parser";
 import router from "./backend/routes/app.route.js";
+import loggerMiddleware from './backend/middleware/app.log.js';
 
 const app = express();
 const PORT = 3000;
+app.use(loggerMiddleware);
 app.use(bodyParser.json());
 
 

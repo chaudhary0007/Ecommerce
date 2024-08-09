@@ -1,4 +1,4 @@
-// import Products from "../schema/Products";
+import products from "../schema/Products.js";
 
 // const addProduct = async (req, res) => {
 //   let data = req.body;
@@ -9,7 +9,7 @@
 
 // export default addProduct;
 
-exports.postProducts = asyncHandler(async (req, res, next) => {
+exports. postProducts = asyncHandler(async (req, res, next) => {
   let cart = JSON.parse(req.body.cart);
   if (!cart) return res.json(products)
   for (var i = 0; i < products.length; i++) {

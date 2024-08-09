@@ -10,12 +10,11 @@ import authRoutes from "./router/authRoute.js";
 dotenv.config();
 
 const app = express();
-
+//middleWare from wher all the contentent first parse
 app.use(json());
 app.use(morgan("dev"));
 app.use(cors());
 app.use(urlencoded({ extended: true }));
-
 app.use("/", router);
 app.use('/api/v1/auth', authRoutes);
 

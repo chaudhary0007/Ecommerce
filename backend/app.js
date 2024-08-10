@@ -7,6 +7,7 @@ import router from "./router/authRoute.js";
 import authRoutes from "./router/authRoute.js";
 
 
+
 dotenv.config();
 
 const app = express();

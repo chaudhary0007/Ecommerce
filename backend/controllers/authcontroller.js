@@ -57,7 +57,7 @@ export const loginController = async (req, res) => {
       })
     }
     //check user
-    const user = await userModel.findOne({email});
+    const user = await User.findOne({email});
     if (!user) {
       return res.status(404).send({
         success: false,
@@ -73,7 +73,7 @@ export const loginController = async (req, res) => {
     }
     //token
     const token = await JWT.sign({_id:user._id}, process.env.JWT_SECRET, {
-      expriesIn: "7d",
+      expiresIn : '1h'
     });
     res.status(200).send({
       success: true,

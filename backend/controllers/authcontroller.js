@@ -4,12 +4,12 @@ import JWT from "jsonwebtoken";
 
 export const registerController = async (req, res) => {
   try {
-    const { FirstName, LastName, email, password } = req.body;
+    const { FirstName, LastName, email, password } = req.body
     if (!FirstName) {
-      return res.send({ error: "Name is Required" });
+      return res.send({ error: "First Name is Required" });
     }
     if (!LastName) {
-      return res.send({ error: "Last Name is Required" });
+      return res.send({ error: " Last Name is Required" });
     }
     if (!email) {
       return res.send({ error: "email is Required" });
@@ -73,7 +73,7 @@ export const loginController = async (req, res) => {
     }
     //token
     const token = await JWT.sign({_id:user._id}, process.env.JWT_SECRET, {
-      expiresIn : '1h'
+      expiresIn : '7d'
     });
     res.status(200).send({
       success: true,
@@ -94,3 +94,7 @@ export const loginController = async (req, res) => {
     });
   }
 };
+//test controller
+export const testController = (req,res)=>{
+  res.send("protected Route");
+}

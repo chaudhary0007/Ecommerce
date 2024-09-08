@@ -4,6 +4,7 @@ import { greeting } from "../controllers/greeting";
 import { registerController, loginController,testController} from "../controllers/authcontroller";
 import { reqireSignIn } from "../middleware/authMiddleware";
 
+
 const router = Router();
 
 router.get("/", greeting);

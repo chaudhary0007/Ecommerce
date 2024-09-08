@@ -6,16 +6,16 @@ export const registerController = async (req, res) => {
   try {
     const { FirstName, LastName, email, password } = req.body
     if (!FirstName) {
-      return res.send({ error: "First Name is Required" });
+      return res.send({ message: "First Name is Required" });
     }
     if (!LastName) {
-      return res.send({ error: " Last Name is Required" });
+      return res.send({ message: " Last Name is Required" });
     }
     if (!email) {
-      return res.send({ error: "email is Required" });
+      return res.send({ message: "email is Required" });
     }
     if (!password) {
-      return res.send({ error: "password is Required" });
+      return res.send({ message: "password is Required" });
     }
     const exisitingUser = await User.findOne({ email });
     if (exisitingUser) {

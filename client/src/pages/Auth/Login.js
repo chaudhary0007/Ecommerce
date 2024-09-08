@@ -8,8 +8,8 @@ import{useAuth} from "../../Context/auth";
 
 
 const Login = () => {
-  const [email, Setemail] = useState("");
-  const [Password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [auth,setAuth] = useAuth();
   const navigate = useNavigate();
 
@@ -18,10 +18,10 @@ const Login = () => {
     try {
       const res = await axios.post("/api/v1/auth/login", {
         email,
-        Password,
+        password,
       });
-      if (res && res.data.message) {
-        toast.success(res.data.message);
+      if (res && res.data.success) {
+        toast.success(res.data && res.data.message);
         setAuth({
           ...auth,
           user:res.data.user,
@@ -49,7 +49,7 @@ const Login = () => {
             <input
               type="email"
               value={email}
-              onChange={(e) => Setemail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               className="form-control"
               id="inputEmail4"
               required
@@ -61,7 +61,7 @@ const Login = () => {
             </label>
             <input
               type="password"
-              value={Password}
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="form-control"
               id="inputPassword4"
@@ -70,7 +70,7 @@ const Login = () => {
           </div>
           <div className="col-12">
             <button type="submit" className="btn btn-primary">
-              Sign in
+             LOGIN
             </button>
           </div>
         </form>

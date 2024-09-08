@@ -8,17 +8,17 @@ const Register = () => {
   const [FirstName, SetName] = useState("");
   const [LastName, SetLastName] = useState("");
   const [email, Setemail] = useState("");
-  const [Password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.post('/api/v1/auth/register',
-        { FirstName, LastName, email, Password }
+        { FirstName, LastName, email, password }
       );
-      if (res && res.data.message) {
-        toast.success(res.data.message);
+      if (res && res.data.success) {
+        toast.success(res.data && res.data.message);
         navigate("/login");
       } else {
         toast.error(res.data.message);
@@ -81,7 +81,7 @@ const Register = () => {
             </label>
             <input
               type="password"
-              value={Password}
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="form-control"
               id="inputPassword4"
